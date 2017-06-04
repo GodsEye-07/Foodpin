@@ -1,21 +1,17 @@
 //
-//  restaurantsTableViewCell.swift
+//  RestuarantDetailViewCell.swift
 //  Foodpin Practice
 //
-//  Created by Ayush Verma on 29/04/17.
+//  Created by Ayush Verma on 05/06/17.
 //  Copyright © 2017 ayush. All rights reserved.
 //
 
 import UIKit
 
-class restaurantsTableViewCell: UITableViewCell {
+class RestuarantDetailTableViewCell: UITableViewCell {
     
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var thumbnailImageView: UIImageView!
-    
+    @IBOutlet var fieldLabel: UILabel!
+    @IBOutlet var valueLabel:UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

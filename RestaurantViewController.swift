@@ -11,211 +11,127 @@ import UIKit
 class RestaurantViewController: UITableViewController {
     
     
+var restaurants:[Restaurant] = [
+    Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "Hong Kong", image: "cafedeadend.jpg", isVisited: false),
+    Restaurant(name: "Homei", type: "Cafe", location: "Hong Kong", image: "homei.jpg", isVisited: false),
+    Restaurant(name: "Teakha", type: "Tea House", location: "Hong Kong", image: "teakha.jpg", isVisited: false),
+    Restaurant(name: "Cafe loisl", type: "Austrian / Causual Drink", location: "Hong Kong", image: "cafeloisl.jpg", isVisited: false),
+    Restaurant(name: "Petite Oyster", type: "French", location: "Hong Kong", image: "petiteoyster.jpg", isVisited: false),
+    Restaurant(name: "For Kee Restaurant", type: "Bakery", location: "Hong Kong", image: "forkeerestaurant.jpg", isVisited: false),
+    Restaurant(name: "Po's Atelier", type: "Bakery", location: "Hong Kong", image: "posatelier.jpg", isVisited: false),
+    Restaurant(name: "Bourke Street Backery", type: "Chocolate", location: "Sydney", image: "bourkestreetbakery.jpg", isVisited: false),
+    Restaurant(name: "Haigh's Chocolate", type: "Cafe", location: "Sydney", image: "haighschocolate.jpg", isVisited: false),
+    Restaurant(name: "Palomino Espresso", type: "American / Seafood", location: "Sydney", image: "palominoespresso.jpg", isVisited: false),
+    Restaurant(name: "Upstate", type: "American", location: "New York", image: "upstate.jpg", isVisited: false),
+    Restaurant(name: "Traif", type: "American", location: "New York", image: "traif.jpg", isVisited: false),
+    Restaurant(name: "Graham Avenue Meats", type: "Breakfast & Brunch", location: "New York", image: "grahamavenuemeats.jpg", isVisited: false),
+    Restaurant(name: "Waffle & Wolf", type: "Coffee & Tea", location: "New York", image: "wafflewolf.jpg", isVisited: false),
+    Restaurant(name: "Five Leaves", type: "Coffee & Tea", location: "New York", image: "fiveleaves.jpg", isVisited: false),
+    Restaurant(name: "Cafe Lore", type: "Latin American", location: "New York", image: "cafelore.jpg", isVisited: false),
+    Restaurant(name: "Confessional", type: "Spanish", location: "New York", image: "confessional.jpg", isVisited: false),
+    Restaurant(name: "Barrafina", type: "Spanish", location: "London", image: "barrafina.jpg", isVisited: false),
+    Restaurant(name: "Donostia", type: "Spanish", location: "London", image: "donostia.jpg", isVisited: false),
+    Restaurant(name: "Royal Oak", type: "British", location: "London", image: "royaloak.jpg", isVisited: false),
+    Restaurant(name: "CASK Pub and Kitchen", type: "Thai", location: "London", image: "caskpubkitchen.jpg", isVisited: false)
+]
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+ override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    // Uncomment the following line to preserve selection between presentations
+    // self.clearsSelectionOnViewWillAppear = false
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+}
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+ override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+}
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+// MARK: - Table view data source
+
+ override func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+}
+
+override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return restaurants.count
+}
+
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    let cellIdentifier = "cell"
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! restaurantsTableViewCell
+    
+    // Configure the cell...
+    cell.nameLabel.text = restaurants[indexPath.row].name
+    cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
+    cell.locationLabel.text = restaurants[indexPath.row].location
+    cell.typeLabel.text = restaurants[indexPath.row].type
+    
+    cell.accessoryType = restaurants[indexPath.row].isVisited ? .checkmark : .none
+    
+    cell.thumbnailImageView.layer.cornerRadius = 35.0
+    cell.thumbnailImageView.clipsToBounds = true
+    
+    return cell
+}
+
+
+override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    if editingStyle == .delete {
+        // Delete the row from the data source
+        restaurants.remove(at: indexPath.row)
     }
     
-    
-    
-    var restaurantNames = ["cafe Deadend" , "Homei" , "Teakha" , "Cafe Loisl"," Petite Oyster","For Kee Restaurant","Po's Atelier","Bourke Street Bakery","Haigh's Chocolate","Palomino Espresso","Upstate","Traif","Graham Avenue Meats","Waffle & Wolf","Five Leaves","Cafe Lore","Confessional","Barrafina","Donostia","Royal Oak","CASK Pub and Kitchen"]
-    
-    var restaurantImages = ["cafedeadend.jgp" ,"homei.jgp" , "teakha.jpg" , "cafeloisl.jpg","petiteoyster.jpg","forkeerestaurant.jpg","posatelier.jpg","bourkestreetbakery.jpg","haighschocolate.jpg","palominoespresso.jpg","upstate.jpg","traif.jpg","grahamavenuemeats.jpg","wafflewolf.jpg","fiveleaves.jpg","cafelore.jpg","confessional.jpg","barrafina.jpg","donostia.jpg","royaloak.jpg","caskpubkitchen.jpg"]
+    tableView.deleteRows(at: [indexPath], with: .fade)
+}
 
-    var restaurantLocation = ["Hong Kong","Hong Kong","Hong Kong","Hong Kong","Hong Kong","Hong Kong","Hong Kong","sydney","sydney","sydney","New York","New York","New York","New York","New York","New York","New York","London","London","London","London"]
+ override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
-    var restaurantTypes = ["Coffee & Tea Shop","Cafe","Tea House","Autrian / Casual Drink","French","Bakery","Bakery","Chocolate","Cafe","American / Seafood","American","American","Breakfast & Brunch","Coffee & Tea","Coffee & Tea","Coffee & Tea","Latin American","Spanish","Spanish","Spanish","British","Thai"]
-    
-    var restaurantIsVisited = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return restaurantNames.count
-    }
-    
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    // Social Sharing Button
+    let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
         
+        let defaultText = "Just checking in at " + self.restaurants[indexPath.row].name
         
-        let cellIdentifier = "cell"
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! restaurantsTableViewCell
-        cell.nameLabel.text = restaurantNames[indexPath.row]
-        cell.thumbnaiImageView.image = UIImage(named: restaurantImages[indexPath.row])
-        
-        // this part of the code makes the thumbnail image circular
-        cell.thumbnaiImageView.layer.cornerRadius = 30.0
-        cell.thumbnaiImageView.clipsToBounds = true
-        
-        cell.locationLabel.text = restaurantLocation[indexPath.row]
-        cell.typeLabel.text = restaurantTypes[indexPath.row]
-        
-        
-        if restaurantIsVisited[indexPath.row] == true{
-            cell.accessoryType = .checkmark
+        if let imageToShare = UIImage(named: self.restaurants[indexPath.row].image) {
+            let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
         }
-        else{
-            cell.accessoryType = .none
+    })
+    
+    // Delete button
+    let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
+        
+        // Delete the row from the data source
+        self.restaurants.remove(at: indexPath.row)
+        
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
+    })
+    
+    shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+    deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+    
+    return [deleteAction, shareAction]
+}
+
+
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showRestaurantDetail" {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let destinationController = segue.destination as! RestaurantDetailViewController
+            destinationController.restaurant = restaurants[indexPath.row]
         }
-        
-        
-        return cell
-        
-        
     }
+}
     
     
-    // to create the alert box
-    
-    // function inside the tableViewCell is created as Override not to change the functions of the tableView
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // create an optional menu as an (action sheet or as an alert)
-        let optionMenu = UIAlertController(title: nil, message : "What do you want to do?", preferredStyle: .actionSheet)
-        
-        // add action to the menu
-        let cancelAction = UIAlertAction(title: "Cancel" ,style: .cancel , handler: nil )
-        optionMenu.addAction(cancelAction)
-        
-        // display the menu
-        present(optionMenu, animated: true, completion: nil)
-        
-        
-        
-        
-        // add call action
-        let callActionHandler = {(ACTION: UIAlertAction!) -> Void in
-        
-            let alertMessage = UIAlertController(title:"Call Service Unavailable", message:"Please try after some time", preferredStyle: .alert)
-            
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alertMessage, animated:true, completion: nil)
-            
-        }
-        
-        let callAction = UIAlertAction(title: "Call" + " 123-000-\(indexPath.row)",style :.default, handler: callActionHandler)
-        optionMenu.addAction(callAction)
-        
-        
-        // add message action
-        let messageHandler = {(ACTION: UIAlertAction!) -> Void in
-            
-            let alertMess = UIAlertController(title:"Message Service Unavailable", message:"Please try after some time", preferredStyle: .alert)
-            
-            alertMess.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alertMess, animated:true, completion: nil)
-            
-        }
-        let messageAction = UIAlertAction(title: "Message" + " 123-000-\(indexPath.row)",style :.default, handler: messageHandler)
-        optionMenu.addAction(messageAction)
+// end of the class
+}
 
-        
-        
-        // check in action
-        let checkInTitle = restaurantIsVisited[indexPath.row] ? "Undo Check In" : "Check In"
-        let checkInAction = UIAlertAction(title: checkInTitle ,style: .default ,handler: {
-            
-            (ACTION : UIAlertAction!) -> Void in
-            
-            let cell = tableView.cellForRow(at:indexPath)
-            
-            
-            // checks if the restaurantIVisited is true or not if true then make it false
-            self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
-            cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
 
-        })
-        optionMenu.addAction(checkInAction)
 
-        // end of didSelectRowAt
-        }
-    
-    
-    
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            
-            
-            // delete all the elements in the cell of a table view individually
-            restaurantNames.remove(at: indexPath.row)
-            restaurantTypes.remove(at: indexPath.row)
-            restaurantLocation.remove(at: indexPath.row)
-            restaurantImages.remove(at: indexPath.row)
-            restaurantIsVisited.remove(at: indexPath.row)
-        
-        }
-        
-        tableView.deleteRows(at: [indexPath], with: .fade)
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        // social sharing action
-        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default , title:"Share" ,handler: {(ACTION, indexPath) -> Void in
-            
-                let defaultText = "Just Check In At " + self.restaurantNames[indexPath.row]
-          
-            
-            // to add image also to sharing
-            if let imageToShare = UIImage(named: self.restaurantImages[indexPath.row]){
-            
-               let activityController = UIActivityViewController(activityItems:[defaultText,imageToShare],applicationActivities: nil)
-                
-                        self.present(activityController, animated: true, completion: nil)
-            
-            } 
-        })
-        
-        
-        
-        
-        // delete action
-        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title:"Delete",handler :{(ACTION,indexPath) ->Void in
-        
-                // delete the row from the data source
-                self.restaurantNames.remove(at: indexPath.row)
-                self.restaurantLocation.remove(at: indexPath.row)
-                self.restaurantTypes.remove(at: indexPath.row)
-                self.restaurantIsVisited.remove(at: indexPath.row)
-                self.restaurantImages.remove(at: indexPath.row)
-            
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-        
-        })
-        
-         shareAction.backgroundColor = UIColor(red: 103.0/255.0, green: 65.0/255.0, blue: 114.0/255.0, alpha: 1.0)
-        
-        deleteAction.backgroundColor = UIColor(red: 245.0/255.0, green: 215.0/255.0, blue: 110.0/255.0, alpha: 1.0)
 
-        
-        return [deleteAction,shareAction]
-        
-       
-    }
-    
-    
-    
-// end of the ViewController Class
-  }
