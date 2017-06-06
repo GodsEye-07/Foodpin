@@ -36,7 +36,7 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
         // to give the name in the navigation bar of the specific restaurant
         title = restaurant.name
         
-               
+       print("its working fine")
     }
     
     override func didReceiveMemoryWarning() {
