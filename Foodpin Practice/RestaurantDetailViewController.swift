@@ -21,8 +21,22 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
         // Do any additional setup after loading the view.
         restaurantImageView.image = UIImage(named: restaurant.image)
         
+        
+        // adding a slight background colour
         tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         
+        
+        // to change the tableView seperator and change its color
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
+        
+        // to remove the title of the back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        // to give the name in the navigation bar of the specific restaurant
+        title = restaurant.name
+        
+               
     }
     
     override func didReceiveMemoryWarning() {
