@@ -36,7 +36,16 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
         // to give the name in the navigation bar of the specific restaurant
         title = restaurant.name
         
-       print("its working fine")
+        // for the self sizing of the cells
+        tableView.estimatedRowHeight = 36.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // to disable the navigaiton bar hiding feature in this viewController
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,7 +55,7 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,6 +74,9 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
             cell.fieldLabel.text = "Location"
             cell.valueLabel.text = restaurant.location
         case 3:
+            cell.fieldLabel.text = "Phone Number"
+            cell.valueLabel.text = restaurant.phoneNumber
+        case 4:
             cell.fieldLabel.text = "Been Here"
             cell.valueLabel.text = (restaurant.isVisited) ? "Yes, I have been Here Before" : "No"
         default:
@@ -75,8 +87,11 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
         return cell
         
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
 
-  
 
 
 }
