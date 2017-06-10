@@ -41,6 +41,10 @@ class RestaurantViewController: UITableViewController {
     tableView.estimatedRowHeight = 36.0
     tableView.rowHeight = UITableViewAutomaticDimension
     
+    
+    // remove the label in the view Controller
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    
 }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +82,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
     
     cell.accessoryType = restaurants[indexPath.row].isVisited ? .checkmark : .none
     
-    cell.thumbnailImageView.layer.cornerRadius = 35.0
+    cell.thumbnailImageView.layer.cornerRadius = 30.0
     cell.thumbnailImageView.clipsToBounds = true
     
     return cell

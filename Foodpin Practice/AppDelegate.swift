@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        if let barFont = UIFont(name: "AvenirNextCondensed-DemiBold", size: 24.0) {
+            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFont]
+        }
         return true
     }
 
