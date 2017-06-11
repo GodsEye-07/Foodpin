@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var restaurantImageView: UIImageView!
+    @IBOutlet weak var mapView: MKMapView!
     
     var restaurant:Restaurant!
  
@@ -27,7 +29,8 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
         
         
         // to change the tableView seperator and change its color
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         
         // to remove the title of the back button
@@ -40,6 +43,11 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
         tableView.estimatedRowHeight = 36.0
         tableView.rowHeight = UITableViewAutomaticDimension
        
+        // to add the tap gesture for the mapView
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action:
+            #selector(showMap))
+        mapView.addGestureRecognizer(tapGestureRecognizer)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,9 +124,10 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
             }
         }
 
-    
-    
-   
+    func showMap() {
+        performSegue(withIdentifier: "showMap", sender: self)
+    }
+ 
     
 // end of the class
 }

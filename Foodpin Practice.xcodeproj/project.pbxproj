@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A5C5EB71EDD647E00A664B0 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C5EB61EDD647E00A664B0 /* RestaurantDetailViewController.swift */; };
+		2A5D1E021EED4A0400FA8322 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5D1E011EED4A0400FA8322 /* MapKit.framework */; };
 		2A612A311EB4F50D00A5CF3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A612A301EB4F50D00A5CF3A /* AppDelegate.swift */; };
 		2A612A361EB4F50D00A5CF3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A612A341EB4F50D00A5CF3A /* Main.storyboard */; };
 		2A612A381EB4F50D00A5CF3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A612A371EB4F50D00A5CF3A /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		2A5C5EB61EDD647E00A664B0 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		2A5D1E011EED4A0400FA8322 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2A612A2D1EB4F50D00A5CF3A /* Foodpin Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Foodpin Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A612A301EB4F50D00A5CF3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A612A351EB4F50D00A5CF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,17 +41,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A5D1E021EED4A0400FA8322 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A5D1E001EED4A0400FA8322 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A5D1E011EED4A0400FA8322 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2A612A241EB4F50D00A5CF3A = {
 			isa = PBXGroup;
 			children = (
 				2A612A2F1EB4F50D00A5CF3A /* Foodpin Practice */,
 				2A612A2E1EB4F50D00A5CF3A /* Products */,
+				2A5D1E001EED4A0400FA8322 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +125,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 4FUFV9ADLZ;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
