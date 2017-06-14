@@ -48,6 +48,33 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
             #selector(showMap))
         mapView.addGestureRecognizer(tapGestureRecognizer)
         
+        
+        //adding the map annotation mark in the map
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(restaurant.location, completionHandler: {
+            placemarks, error in
+            if error != nil {
+                print(error!)
+                return
+            }
+            if let placemarks = placemarks {
+                // Get the first placemark
+                let placemark = placemarks[0]
+                // Add annotation
+                let annotation = MKPointAnnotation()
+                if let location = placemark.location {
+                    // Display the annotation
+                    annotation.coordinate = location.coordinate
+                    self.mapView.addAnnotation(annotation)
+                    // Set the zoom level
+                    let region =
+                        MKCoordinateRegionMakeWithDistance(annotation.coordinate, 250, 250)
+                    self.mapView.setRegion(region, animated: false)
+                }
+            } })
+                mapView.showsTraffic = true
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +109,7 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
             cell.fieldLabel.text = "Location"
             cell.valueLabel.text = restaurant.location
         case 3:
-            cell.fieldLabel.text = "Phone Number"
+            cell.fieldLabel.text = "Phone"
             cell.valueLabel.text = restaurant.phoneNumber
         case 4:
             cell.fieldLabel.text = "Been Here"
@@ -122,11 +149,17 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
                 let destinationController = segue.destination as! reviewViewController
                 destinationController.restaurant = restaurant
             }
+        else if segue.identifier == "showMap" {
+                let destinationController = segue.destination as! MapViewController
+                destinationController.restaurant = restaurant
+            }
         }
 
     func showMap() {
         performSegue(withIdentifier: "showMap", sender: self)
     }
+    
+    
  
     
 // end of the class
