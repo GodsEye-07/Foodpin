@@ -17,6 +17,12 @@ class MapViewController: UIViewController,MKMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //adding the tittle of the back button item
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "\(restaurant.name)", style: .plain, target: nil, action: nil)
+        
+        // adding the tittle to the navigation bar
+        self.title  = "Map View"
 
         //convert address to coordinate and annotate it on map
         let geoCoder = CLGeocoder()
