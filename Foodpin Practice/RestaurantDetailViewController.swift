@@ -72,9 +72,6 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
                     self.mapView.setRegion(region, animated: false)
                 }
             } })
-                mapView.showsTraffic = true
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
