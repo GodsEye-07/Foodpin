@@ -101,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYD-ri-F5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="1135"/>
+            <point key="canvasLocation" x="870" y="1134"/>
         </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="EbI-Lh-dOQ">
@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G24-OO-8aa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="1134"/>
+            <point key="canvasLocation" x="1670" y="1134"/>
         </scene>
         <!--Add Restaurant Controller-->
         <scene sceneID="fFV-mn-Hoc">
@@ -355,6 +355,9 @@
                                                     <state key="normal" title="YES">
                                                         <color key="titleColor" red="0.97701746369999998" green="1" blue="0.99558175270000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="yesBtnPressed:" destination="P98-YQ-9SN" eventType="touchUpInside" id="hak-sJ-dwR"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czl-Ir-k6i">
                                                     <rect key="frame" x="81" y="33" width="50" height="30"/>
@@ -365,6 +368,9 @@
                                                     <state key="normal" title="NO">
                                                         <color key="titleColor" red="0.97701746369999998" green="1" blue="0.99558175270000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="noBtnPressed:" destination="P98-YQ-9SN" eventType="touchUpInside" id="FM5-YV-8Uy"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -392,15 +398,26 @@
                                 <segue destination="tIm-Q9-R2o" kind="unwind" unwindAction="unwindToHomeScreenWithSegue:" id="WcG-ii-uPv"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="f9i-Ed-poi">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveData:" destination="P98-YQ-9SN" id="D6K-xP-HEb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationTextField" destination="bUY-qz-S6A" id="L3W-FC-M1d"/>
+                        <outlet property="noBtn" destination="Czl-Ir-k6i" id="khB-Cd-xkG"/>
                         <outlet property="photoImageView" destination="bBp-cs-edT" id="twH-2v-fv4"/>
+                        <outlet property="restaurantTextField" destination="xdz-lm-9zU" id="rWu-3C-mbC"/>
+                        <outlet property="typeTextField" destination="05G-8u-bCp" id="dMF-eh-h7G"/>
+                        <outlet property="yesBtn" destination="8Ie-HQ-bZF" id="QvA-2m-jFd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dE-C0-jjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tIm-Q9-R2o" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="1848"/>
+            <point key="canvasLocation" x="145" y="1878"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="Lqx-6c-cdy">
@@ -432,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdE-PY-LLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="1848.1259370314845"/>
+            <point key="canvasLocation" x="1670" y="1878"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="etz-PZ-nmS">
@@ -551,7 +568,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOM-qJ-Up9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="aba-97-QVd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2657" y="1134"/>
+            <point key="canvasLocation" x="2454" y="1134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9vZ-y8-NmC">
@@ -569,7 +586,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ien-5Q-110" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="1134"/>
+            <point key="canvasLocation" x="146" y="1134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XIp-qW-iOi">
@@ -587,7 +604,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDt-8m-StT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="1848"/>
+            <point key="canvasLocation" x="870" y="1878"/>
         </scene>
     </scenes>
     <resources>
