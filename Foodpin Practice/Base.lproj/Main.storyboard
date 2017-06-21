@@ -43,22 +43,22 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="cQn-6B-h7I">
-                                                    <rect key="frame" x="70" y="0.0" width="283" height="56"/>
+                                                    <rect key="frame" x="70" y="0.0" width="283" height="55.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="609-Nh-8X9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="283" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="283" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3c-gz-efN">
-                                                            <rect key="frame" x="0.0" y="22" width="283" height="17"/>
+                                                            <rect key="frame" x="0.0" y="21.5" width="283" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il6-zl-h1D">
-                                                            <rect key="frame" x="0.0" y="40" width="283" height="16"/>
+                                                            <rect key="frame" x="0.0" y="39.5" width="283" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -366,7 +366,7 @@
                                                         <constraint firstAttribute="width" constant="50" id="Fcy-g4-DUp"/>
                                                     </constraints>
                                                     <state key="normal" title="NO">
-                                                        <color key="titleColor" red="0.97701746369999998" green="1" blue="0.99558175270000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="noBtnPressed:" destination="P98-YQ-9SN" eventType="touchUpInside" id="FM5-YV-8Uy"/>
@@ -485,7 +485,7 @@
                                         <rect key="frame" x="8" y="287" width="253" height="123"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opw-Lm-ruP">
-                                                <rect key="frame" x="0.0" y="0.0" width="253" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="253" height="37.5"/>
                                                 <color key="backgroundColor" red="0.86312758922576904" green="0.39060676097869873" blue="0.25215762853622437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -495,7 +495,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzL-t1-zdt">
-                                                <rect key="frame" x="0.0" y="43" width="253" height="37"/>
+                                                <rect key="frame" x="0.0" y="42.5" width="253" height="38"/>
                                                 <color key="backgroundColor" red="0.86312758922576904" green="0.39060676097869873" blue="0.25215762853622437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -505,7 +505,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poc-lB-q3Y">
-                                                <rect key="frame" x="0.0" y="85" width="253" height="38"/>
+                                                <rect key="frame" x="0.0" y="85.5" width="253" height="37.5"/>
                                                 <color key="backgroundColor" red="0.86312758922576904" green="0.39060676097869873" blue="0.25215762853622437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

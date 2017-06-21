@@ -15,13 +15,13 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     
-    var restaurant:Restaurant!
+    var restaurant:RestaurantMO!
  
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        restaurantImageView.image = UIImage(named: restaurant.image)
+        restaurantImageView.image = UIImage(data: restaurant.image as! Data)
         
         
         // adding a slight background colour
@@ -51,7 +51,7 @@ class RestaurantDetailViewController: UIViewController,UITableViewDataSource,UIT
         
         //adding the map annotation mark in the map
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(restaurant.location, completionHandler: {
+        geocoder.geocodeAddressString(restaurant.location!, completionHandler: {
             placemarks, error in
             if error != nil {
                 print(error!)

@@ -91,7 +91,7 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
     
     @IBAction func yesBtnPressed(_ sender: Any) {
         
-        yesBtn.backgroundColor = UIColor.orange
+        yesBtn.backgroundColor = UIColor(red: 220.0/255.0, green: 100.0/255.0, blue: 64.0/255.0, alpha: 1.0)
         noBtn.backgroundColor = UIColor.gray
         
     }
@@ -99,7 +99,7 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
     @IBAction func noBtnPressed(_ sender: Any){
         
         yesBtn.backgroundColor = UIColor.gray
-        noBtn.backgroundColor = UIColor.orange
+        noBtn.backgroundColor = UIColor(red: 220.0/255.0, green: 100.0/255.0, blue: 64.0/255.0, alpha: 1.0)
     
     }
     

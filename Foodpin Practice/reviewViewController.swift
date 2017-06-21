@@ -17,14 +17,14 @@ class reviewViewController: UIViewController {
     
     @IBOutlet weak var closeButton: UIButton!
     
-    var restaurant :Restaurant?
+    var restaurant :RestaurantMO?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         if let restaurant = restaurant{
-            restaurantImageView.image = UIImage(named: restaurant.image)
+            restaurantImageView.image = UIImage(data: restaurant.image! as Data)
         }
         
         // adding the blur effect to the background
