@@ -104,5 +104,5 @@ class AddRestaurantController: UITableViewController,UIImagePickerControllerDele
     }
     
     
-// end of the class brace
+// end of the class
 }
