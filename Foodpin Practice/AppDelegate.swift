@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        if let barFont = UIFont(name: "AvenirNextCondensed-DemiBold", size: 24.0) {
+        if let barFont = UIFont(name: "AvenirNext-DemiBold", size: 24.0) {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFont]
         }
         
