@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let barFont = UIFont(name: "AvenirNextCondensed-DemiBold", size: 24.0) {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFont]
         }
+        
         return true
     }
 
@@ -52,6 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
+    // code for the datamodel file that is been added by copying from the appcoda basic book
     
     lazy var persistentContainer: NSPersistentContainer = {
         /*
