@@ -108,7 +108,7 @@ override func tableView(_ tableView: UITableView, commit editingStyle: UITableVi
         
         let defaultText = "Just checking in at " + self.restaurants[indexPath.row].name!
         
-        if let imageToShare = UIImage(data: self.restaurants[indexPath.row].image as! Data) {
+        if let imageToShare = UIImage(data: self.restaurants[indexPath.row].image! as Data) {
             let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
             self.present(activityController, animated: true, completion: nil)
         }
