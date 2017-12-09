@@ -78,7 +78,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
     
     // Configure the cell...
     cell.nameLabel.text = restaurants[indexPath.row].name
-    cell.thumbnailImageView.image = UIImage(data: restaurants[indexPath.row].image as! Data)
+    cell.thumbnailImageView.image = UIImage(data: restaurants[indexPath.row].image! as Data)
     cell.locationLabel.text = restaurants[indexPath.row].location
     cell.typeLabel.text = restaurants[indexPath.row].type
     
